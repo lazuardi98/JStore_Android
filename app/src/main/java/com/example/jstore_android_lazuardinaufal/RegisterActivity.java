@@ -6,11 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity
                 final String password = passInput.getText().toString();
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
                     @Override
-                    public void onResponse(String response) {
+                    public void onResponse(String response){
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             if (jsonResponse != null){
