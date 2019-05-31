@@ -24,6 +24,8 @@ public class LoginActivity extends AppCompatActivity
         final EditText emailInput = (EditText) findViewById(R.id.emailInput);
         final EditText passInput = (EditText) findViewById(R.id.passInput);
         final Button button = (Button) findViewById(R.id.loginButton);
+        final TextView registerClickable = (TextView) findViewById(R.id.registerClickable);
+
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -35,6 +37,17 @@ public class LoginActivity extends AppCompatActivity
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             if (jsonResponse != null){
+                                if (jsonResponse.getString("name") == "null") {
+                                    throw new JSONException("name");
+                                }
+                                else {
+                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    intent.putExtra("currentUserId", jsonResponse.getInt("id"));
+                                    intent.putExtra("currentUserName", jsonResponse.getString("name"));
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    startActivity(intent);
+                                    finish();
+                                }
                                 AlertDialog.Builder builder1 = new AlertDialog.Builder(LoginActivity.this);
                                 builder1.setMessage("Login Success!").create().show();
                             }
@@ -49,7 +62,7 @@ public class LoginActivity extends AppCompatActivity
                 queue.add(loginRequest);
             }
         });
-        final TextView registerClickable = (TextView) findViewById(R.id.registerClickable);
+
         registerClickable.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){

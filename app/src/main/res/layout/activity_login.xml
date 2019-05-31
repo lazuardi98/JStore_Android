@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
 
     <EditText
         android:id="@+id/emailInput"
@@ -10,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="260dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress" />
@@ -19,8 +20,9 @@
         android:id="@+id/passInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/emailInput"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword" />
@@ -29,19 +31,18 @@
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/passInput"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="270dp"
-        android:text="Button"
-        tools:text="Login" />
+        android:layout_marginTop="31dp"
+        android:text="Login" />
 
     <TextView
         android:id="@+id/registerClickable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/loginButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="230dp"
+        android:layout_marginTop="23dp"
         android:text="Register Here"
         android:textColor="@color/colorPrimary" />
 
